@@ -396,7 +396,9 @@
   .tag:hover { background: var(--gold); color: var(--bordeaux-deep); }
 
   /* ─── EXPERTISE ─── */
-  #expertise { background: var(--bordeaux-mid); }
+  #formations { background: var(--bordeaux-mid); }
+
+  #expertise { background: var(--bordeaux-dark); }
 
   .expertise-list {
     display: flex; flex-direction: column;
@@ -413,6 +415,12 @@
     transition: padding 0.4s;
   }
   .expertise-item:hover { padding-left: 2rem; }
+  .expertise-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
   .expertise-num {
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
@@ -425,6 +433,13 @@
     font-weight: 300;
     transition: color 0.3s;
   }
+  .expertise-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
   .expertise-item:hover .expertise-name { color: var(--gold-light); }
   .expertise-desc {
     font-size: 0.85rem;
@@ -435,7 +450,7 @@
   }
 
   /* ─── TOOLS ─── */
-  #tools { background: var(--bordeaux-dark); }
+  #tools { background: var(--bordeaux-mid); }
 
   .tools-marquee-wrap {
     overflow: hidden;
