@@ -718,8 +718,17 @@
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .skills-layout { grid-template-columns: 1fr; }
     .tools-grid { grid-template-columns: repeat(2,1fr); }
-    .expertise-item { grid-template-columns: 50px 1fr; }
-    .expertise-desc { display: none; }
+    .expertise-item {
+      grid-template-columns: 50px 1fr;
+      gap: 0.75rem 1.25rem;
+      align-items: start;
+    }
+    .expertise-desc {
+      grid-column: 2;
+      max-width: none;
+      text-align: left;
+      line-height: 1.5;
+    }
     .hero-circle { width: 300px; height: 300px; right: 2%; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
