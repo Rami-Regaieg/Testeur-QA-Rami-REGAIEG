@@ -28,6 +28,29 @@ document
 
 // Navbar scroll
 const nav = document.getElementById("navbar");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+function closeMenu() {
+  nav.classList.remove("menu-open");
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.setAttribute("aria-label", "Ouvrir le menu");
+}
+
+navToggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("menu-open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Fermer le menu" : "Ouvrir le menu",
+  );
+});
+
+navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
 window.addEventListener("scroll", () => {
   nav.classList.toggle("scrolled", window.scrollY > 50);
 });
