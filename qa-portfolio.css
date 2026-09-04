@@ -740,6 +740,47 @@
     transform: translateY(0);
   }
 
+  /* ─── DESKTOP READABILITY ─── */
+  @media (min-width: 901px) {
+    .hero-tag,
+    .section-tag {
+      font-size: 0.9rem;
+    }
+
+    .hero-sub p,
+    .about-text p,
+    .skill-block p,
+    .expertise-desc,
+    .timeline-desc,
+    .contact-sub {
+      font-size: 1.2rem;
+    }
+
+    .stat-label,
+    .expertise-num,
+    .expertise-subtitle,
+    .timeline-date {
+      font-size: 0.9rem;
+    }
+
+    .tag,
+    .marquee-item,
+    .tool-type,
+    .timeline-company span,
+    .pill {
+      font-size: 0.8rem;
+    }
+
+    .skill-block-title {
+      font-size: 1.9rem;
+    }
+
+    .tool-name,
+    .timeline-company {
+      font-size: 1.15rem;
+    }
+  }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     nav { padding: 1.5rem 2rem; }
