@@ -270,6 +270,112 @@
     padding: 7rem 4rem;
   }
 
+  /* ─── STORYTELLING ─── */
+  #storytelling {
+    background: var(--bordeaux-mid);
+    overflow: hidden;
+  }
+
+  .storytelling-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .storytelling-portrait {
+    position: relative;
+    z-index: 0;
+    max-width: 420px;
+  }
+
+  .storytelling-portrait::before {
+    content: '';
+    position: absolute;
+    inset: 1.5rem -1.5rem -1.5rem 1.5rem;
+    border: 1px solid rgba(201,168,76,0.35);
+    z-index: -1;
+  }
+
+  .storytelling-portrait img {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.85);
+  }
+
+  .portrait-caption {
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    line-height: 1.6;
+    text-transform: uppercase;
+    color: var(--white-dim);
+  }
+
+  .storytelling-content .section-tag {
+    margin-bottom: 2rem;
+  }
+
+  .storytelling-content blockquote {
+    margin: 0 0 2.5rem;
+    color: var(--gold-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 4.3rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 0.98;
+  }
+
+  .storytelling-copy,
+  .storytelling-conclusion {
+    max-width: 620px;
+    color: var(--white-dim);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .storytelling-copy p {
+    margin-bottom: 1.2rem;
+  }
+
+  .storytelling-turn {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    color: var(--white);
+  }
+
+  .storytelling-turn span {
+    width: 64px;
+    height: 1px;
+    flex-shrink: 0;
+    background: var(--gold);
+  }
+
+  .storytelling-turn strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 2.6vw, 2.5rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .storytelling-conclusion {
+    color: var(--white);
+  }
+
   .section-tag {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
@@ -692,13 +798,18 @@
   }
   .contact-link {
     font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
+    font-size: 1rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--white-dim);
     text-decoration: none;
     transition: color 0.3s;
     display: flex; align-items: center; gap: 0.5rem;
+  }
+  .contact-link i {
+    color: var(--gold);
+    font-size: 1.15em;
+    letter-spacing: 0;
   }
   .contact-link::before { content: '→'; color: var(--gold); }
   .contact-link:hover { color: var(--gold); }
@@ -783,10 +894,11 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    nav { padding: 1.5rem 2rem; }
+    h { padding: 1.5rem 2rem; }
     .nav-links { gap: 1.5rem; }
     section { padding: 5rem 2rem; }
     #hero { padding: 0 2rem 4rem; }
+    .storytelling-layout { gap: 3rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .skills-layout { grid-template-columns: 1fr; }
     .tools-grid { grid-template-columns: repeat(2,1fr); }
@@ -866,6 +978,41 @@
       padding: 7rem 1.25rem 4rem;
       justify-content: center;
       text-align: center;
+    }
+
+    #storytelling { padding: 5rem 1.25rem; }
+
+    .storytelling-layout {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .storytelling-portrait {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .storytelling-content .section-tag {
+      margin-bottom: 1.5rem;
+    }
+
+    .storytelling-content blockquote {
+      font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .storytelling-copy,
+    .storytelling-conclusion {
+      font-size: 0.98rem;
+    }
+
+    .storytelling-turn {
+      gap: 1rem;
+    }
+
+    .storytelling-turn span { width: 35px; }
+
+    .storytelling-turn strong {
+      font-size: clamp(1.8rem, 9vw, 2.6rem);
     }
 
     .hero-tag {
