@@ -78,7 +78,7 @@
   }
   .nav-logo {
     font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.78rem;
     letter-spacing: 0.25em;
     color: var(--gold);
     text-transform: uppercase;
@@ -120,6 +120,14 @@
   }
   .nav-links a:hover { color: var(--gold); }
   .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-logo:focus-visible,
+  .nav-links a:focus-visible,
+  .nav-toggle:focus-visible,
+  .btn-primary:focus-visible,
+  .contact-link:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 5px;
+  }
 
   /* ─── HERO ─── */
   #hero {
@@ -184,7 +192,7 @@
     letter-spacing: 0.3em;
     color: var(--gold);
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     position: relative; z-index: 2;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.3s forwards;
@@ -199,6 +207,31 @@
     position: relative; z-index: 2;
     opacity: 0;
     animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-name {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 1rem;
+    padding-bottom: 0.35rem;
+    color: var(--gold-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    text-transform: none;
+    animation: heroNamePulse 4.8s ease-in-out 1.4s infinite;
+  }
+  .hero-name::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 72%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+    opacity: 0.7;
   }
   .hero-title em {
     font-style: italic;
@@ -263,17 +296,43 @@
     from { opacity:0; }
     to { opacity:1; }
   }
+  @keyframes heroNamePulse {
+    0%, 100% { opacity: 0.72; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-3px); }
+  }
 
   /* ─── SECTIONS ─── */
   section {
     position: relative; z-index: 2;
     padding: 7rem 4rem;
+    scroll-margin-top: 5rem;
+  }
+
+  section:not(#hero)::before {
+    content: 'Rami REGAIEG';
+    position: absolute !important;
+    top: 0;
+    left: 50%;
+    padding: 0.78rem 1.2rem;
+    border: 1px solid rgba(201,168,76,0.65);
+    border-radius: 2px;
+    background: rgba(26,3,8,0.78);
+    box-shadow: 4px 4px 0 rgba(201,168,76,0.16);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    line-height: 1;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 10;
   }
 
   /* ─── STORYTELLING ─── */
   #storytelling {
     background: var(--bordeaux-mid);
-    overflow: hidden;
+    overflow: visible;
   }
 
   .storytelling-layout {
@@ -296,6 +355,7 @@
     position: absolute;
     inset: 1.5rem -1.5rem -1.5rem 1.5rem;
     border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 14px;
     z-index: -1;
   }
 
@@ -307,6 +367,9 @@
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center top;
+    border: 1px solid rgba(201,168,76,0.58);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
     filter: saturate(0.85);
   }
 
@@ -315,6 +378,7 @@
     position: relative;
     z-index: 1;
     margin-top: 1rem;
+    margin-left: 2rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.14em;
@@ -829,6 +893,16 @@
     color: var(--white-dim);
     text-transform: uppercase;
   }
+  .footer-name,
+  .footer-name:visited,
+  .footer-name:active {
+    color: var(--white-dim);
+    text-decoration: none;
+  }
+  .footer-name:hover {
+    color: var(--gold);
+    text-decoration: none;
+  }
   .footer-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
@@ -982,6 +1056,11 @@
 
     #storytelling { padding: 5rem 1.25rem; }
 
+    section:not(#hero)::before {
+      padding: 0.68rem 0.9rem;
+      font-size: 0.68rem;
+    }
+
     .storytelling-layout {
       grid-template-columns: 1fr;
       gap: 3.5rem;
@@ -1018,7 +1097,7 @@
     .hero-tag {
       font-size: 0.55rem;
       letter-spacing: 0.18em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.55rem;
     }
 
     .hero-title {
@@ -1046,5 +1125,17 @@
     .hero-scroll {
       bottom: 1.5rem;
       right: 1.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
