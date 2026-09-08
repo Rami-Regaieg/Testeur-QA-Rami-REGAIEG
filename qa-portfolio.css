@@ -1056,6 +1056,22 @@
 
     #storytelling { padding: 5rem 1.25rem; }
 
+    #contact {
+      padding: 7rem 1.25rem;
+    }
+
+    .contact-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .contact-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+    }
+
     section:not(#hero)::before {
       padding: 0.68rem 0.9rem;
       font-size: 0.68rem;
