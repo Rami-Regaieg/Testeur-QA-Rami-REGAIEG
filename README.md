@@ -54,34 +54,6 @@ Il suffit d'avoir :
 - un navigateur web moderne,
 - un éditeur de code (optionnel).
 
-## Lancer le projet
-
-### Option 1 : ouverture directe
-
-Double-cliquez sur `index.html` pour l'ouvrir dans votre navigateur.
-
-### Option 2 : serveur local simple
-
-Depuis le dossier du projet, exécutez :
-
-```bash
-python -m http.server 8000
-```
-
-Puis ouvrez dans le navigateur :
-
-```text
-http://localhost:8000
-```
-
-## Personnalisation
-
-Vous pouvez modifier :
-
-- le contenu textuel dans `index.html`,
-- les couleurs et le style dans `qa-portfolio.css`,
-- les animations et interactions dans `qa-portfolio.js`.
-
 ## Propriété
 
 Ce portfolio est conçu pour présenter le parcours professionnel et les compétences de Rami REGAIEG dans le domaine du QA, du support applicatif et du e-commerce.
