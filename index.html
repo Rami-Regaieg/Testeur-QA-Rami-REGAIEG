@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&family=Barlow:wght@200;300;400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="qa-portfolio.css" />
     <script src="./qa-portfolio.js" defer></script>
   </head>
@@ -25,6 +29,7 @@
         <span></span>
       </button>
       <div class="nav-links" id="nav-links">
+        <a href="#storytelling">À propos de moi</a>
         <a href="#about">Profil</a>
         <a href="#competences">Compétences</a>
         <a href="#formations">Formations</a>
@@ -56,6 +61,47 @@
           dans le e-commerce. Garant de l'expérience
           utilisateur finale.
         </p>
+      </div>
+    </section>
+
+    <!-- Storytelling -->
+    <section id="storytelling">
+      <div class="storytelling-layout">
+        <div class="storytelling-portrait reveal">
+          <img src="./photo%20Rami%20pro.png" alt="Portrait de Rami" />
+          <span class="portrait-caption">Derrière chaque anomalie, une expérience utilisateur</span>
+        </div>
+        <div class="storytelling-content reveal">
+          <div class="section-tag">00 — Le déclic</div>
+          <blockquote>
+            « Je n'ai pas commencé<br />
+            dans la tech. J'y suis<br />
+            arrivé par curiosité. »
+          </blockquote>
+          <div class="storytelling-copy">
+            <p>
+              Mon parcours n'est pas celui d'un développeur qui s'est spécialisé
+              dans le test.
+            </p>
+            <p>
+              J'ai commencé par le support applicatif. À force d'analyser les
+              incidents, de chercher pourquoi une fonctionnalité ne fonctionnait
+              pas et surtout de comprendre ce que vivait l'utilisateur derrière
+              chaque ticket...
+              J'ai commencé à tester avant même de porter le titre de QA.
+            </p>
+          </div>
+          <div class="storytelling-turn" aria-hidden="true">
+            <span></span>
+            <strong>Aujourd'hui, je ne veux plus </br>seulement résoudre les problèmes.
+ <br />Je veux contribuer <br />à les empêcher d'arriver.</strong>
+          </div>
+          <p class="storytelling-conclusion">
+            Aujourd'hui, je transforme cette expérience en expertise qualité :
+            une approche ancrée dans le réel, attentive aux détails et tournée
+            vers la fiabilité.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -427,7 +473,7 @@
     <!-- Contact -->
     <section id="contact">
       <div class="section-tag" style="justify-content: center">
-        07 — Contact
+        Contact
       </div>
       <h2 class="contact-title">Travaillons<br /><em>Ensemble</em></h2>
       <p class="contact-sub">
@@ -443,19 +489,19 @@
           href="https://www.linkedin.com/in/rami-regaieg-555475166/"
           target="_blank"
           class="contact-link"
-          >LinkedIn</a
+          ><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn</a
         >
         <a
           href="https://rami-regaieg.github.io/CV-Regaieg-Rami/"
           target="_blank"
           class="contact-link"
-          >CV PDF</a
+          ><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>CV PDF</a
         >
         <a
           href="https://github.com/Rami-Regaieg"
           target="_blank"
           class="contact-link"
-          >GitHub</a
+          ><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a
         >
       </div>
     </section>
