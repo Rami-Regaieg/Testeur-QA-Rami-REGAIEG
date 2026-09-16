@@ -67,7 +67,8 @@
     position: fixed; top:0; left:0; right:0;
     z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.5rem 4rem;
+    padding: 0.9rem 4rem;
+    min-height: 78px;
     border-bottom: 1px solid transparent;
     transition: border-color 0.5s, background 0.5s;
   }
@@ -76,34 +77,99 @@
     background: rgba(26,3,8,0.92);
     backdrop-filter: blur(12px);
   }
-  .nav-logo {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.25em;
-    color: var(--gold);
-    text-transform: uppercase;
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    min-width: 0;
+    line-height: 0;
   }
-  .nav-links { display: flex; gap: 2.5rem; }
-  .nav-toggle {
+  .nav-brand-logo {
+    display: block;
+    width: min(26vw, 340px);
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 14px rgba(201,168,76,0.18));
+    opacity: 0.98;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  .nav-brand:hover .nav-brand-logo {
+    transform: scale(1.01);
+    filter: drop-shadow(0 0 18px rgba(201,168,76,0.26));
+  }
+  .nav-links {
     display: none;
-    border: 0;
-    background: transparent;
+    gap: 2.5rem;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px solid rgba(201,168,76,0.32);
+    background: rgba(201,168,76,0.03);
     color: var(--gold);
     cursor: pointer;
-    padding: 0.35rem;
+    padding: 0.6rem 0.85rem 0.6rem 1rem;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
-  .nav-toggle span {
+  .nav-toggle:hover {
+    border-color: rgba(201,168,76,0.58);
+    background: rgba(201,168,76,0.06);
+  }
+  .nav-label {
+    line-height: 1;
+    color: var(--gold-light);
+  }
+  .burger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.28rem;
+    width: 1.5rem;
+    height: 1.1rem;
+  }
+  .burger span {
     display: block;
     width: 1.5rem;
     height: 1px;
-    margin: 0.35rem 0;
     background: currentColor;
     transition: transform 0.3s, opacity 0.3s;
   }
+  nav.menu-open .nav-links {
+    position: absolute;
+    top: calc(100% + 0.7rem);
+    right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.9rem;
+    min-width: 220px;
+    padding: 1.25rem 1.4rem;
+    background: rgba(26,3,8,0.96);
+    border: 1px solid rgba(201,168,76,0.35);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+    backdrop-filter: blur(12px);
+  }
+  nav.menu-open .nav-toggle {
+    transform: translateY(0);
+  }
+  nav.menu-open .burger span:nth-child(1) {
+    transform: translateY(0.45rem) rotate(45deg);
+  }
+  nav.menu-open .burger span:nth-child(2) {
+    opacity: 0;
+  }
+  nav.menu-open .burger span:nth-child(3) {
+    transform: translateY(-0.45rem) rotate(-45deg);
+  }
   .nav-links a {
     font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
+    font-size: 1rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--white-dim);
@@ -120,7 +186,7 @@
   }
   .nav-links a:hover { color: var(--gold); }
   .nav-links a:hover::after { transform: scaleX(1); }
-  .nav-logo:focus-visible,
+  .nav-brand:focus-visible,
   .nav-links a:focus-visible,
   .nav-toggle:focus-visible,
   .btn-primary:focus-visible,
@@ -309,23 +375,16 @@
   }
 
   section:not(#hero)::before {
-    content: 'Rami REGAIEG';
+    content: '';
     position: absolute !important;
     top: 0;
     left: 50%;
-    padding: 0.78rem 1.2rem;
+    width: 200px;
+    aspect-ratio: 1488 / 715;
+    background: url('./logo%20Rami.jpg') center / cover no-repeat;
     border: 1px solid rgba(201,168,76,0.65);
-    border-radius: 2px;
-    background: rgba(26,3,8,0.78);
     box-shadow: 4px 4px 0 rgba(201,168,76,0.16);
-    color: var(--gold);
-    font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    line-height: 1;
-    text-transform: uppercase;
     transform: translate(-50%, -50%);
-    white-space: nowrap;
     z-index: 10;
   }
 
@@ -969,6 +1028,8 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     h { padding: 1.5rem 2rem; }
+    nav { padding: 0.75rem 2rem; min-height: 68px; }
+    .nav-brand-logo { width: min(40vw, 260px); }
     .nav-links { gap: 1.5rem; }
     section { padding: 5rem 2rem; }
     #hero { padding: 0 2rem 4rem; }
@@ -993,13 +1054,19 @@
 
   @media (max-width: 600px) {
     nav {
-      padding: 1.25rem;
+      padding: 0.8rem 1rem;
+      min-height: 62px;
+    }
+
+    .nav-brand-logo {
+      width: min(44vw, 220px);
     }
 
     .nav-toggle {
-      display: block;
+      display: inline-flex;
       position: relative;
       z-index: 2;
+      padding: 0.55rem 0.8rem 0.55rem 0.9rem;
     }
 
     .nav-links {
@@ -1034,7 +1101,7 @@
       transform: translateY(0);
     }
 
-    nav.menu-open .nav-toggle span:nth-child(1) {
+    nav.menu-open .burger span:nth-child(1) {
       transform: translateY(0.45rem) rotate(45deg);
     }
 
@@ -1073,8 +1140,7 @@
     }
 
     section:not(#hero)::before {
-      padding: 0.68rem 0.9rem;
-      font-size: 0.68rem;
+      width: 120px;
     }
 
     .storytelling-layout {
