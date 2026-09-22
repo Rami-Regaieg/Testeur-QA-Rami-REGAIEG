@@ -116,3 +116,45 @@ document
 document
   .querySelectorAll(".tool-bar-fill")
   .forEach((bar) => (bar.style.width = "0%"));
+
+// Legal mentions modal (footer only)
+const legalModal = document.getElementById("mentions-legales");
+const legalTrigger = document.querySelector("[data-open-legal]");
+const legalClose = document.querySelector(".legal-close");
+
+function openLegalModal() {
+  if (!legalModal) return;
+  legalModal.classList.add("is-open");
+  legalModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLegalModal() {
+  if (!legalModal) return;
+  legalModal.classList.remove("is-open");
+  legalModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+if (legalTrigger) {
+  legalTrigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    openLegalModal();
+  });
+}
+
+if (legalClose) {
+  legalClose.addEventListener("click", closeLegalModal);
+}
+
+if (legalModal) {
+  legalModal.addEventListener("click", (event) => {
+    if (event.target === legalModal) closeLegalModal();
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && legalModal?.classList.contains("is-open")) {
+    closeLegalModal();
+  }
+});
