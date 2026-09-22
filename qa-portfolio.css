@@ -943,7 +943,9 @@
     border-top: 1px solid var(--line);
     padding: 2rem 4rem;
     display: flex; align-items: center; justify-content: space-between;
+    gap: 1.2rem;
     position: relative; z-index: 2;
+    flex-wrap: wrap;
   }
   footer p {
     font-family: 'Space Mono', monospace;
@@ -967,6 +969,92 @@
     border-radius: 50%;
     background: var(--gold);
     animation: pulse 2s ease-in-out infinite;
+  }
+  .footer-legal {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-legal:hover,
+  .footer-legal:focus-visible {
+    color: var(--gold);
+    outline: none;
+  }
+  .legal-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 2, 5, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 999;
+  }
+  .legal-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .legal-modal-panel {
+    width: min(760px, 100%);
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(26, 3, 8, 0.96);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    padding: 2rem 2.2rem 2.5rem;
+    position: relative;
+  }
+  .legal-tag {
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+  .legal-modal-panel h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3vw, 3.4rem);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+  .legal-content {
+    display: grid;
+    gap: 1rem;
+  }
+  .legal-content p {
+    color: var(--white-dim);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+  .legal-content strong {
+    color: var(--gold-light);
+  }
+  .legal-content a {
+    color: var(--gold-light);
+  }
+  .legal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    background: transparent;
+    color: var(--white);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .legal-close:hover,
+  .legal-close:focus-visible {
+    border-color: rgba(201, 168, 76, 0.7);
+    color: var(--gold);
+    outline: none;
   }
   @keyframes pulse {
     0%,100% { opacity:1; transform: scale(1); }
